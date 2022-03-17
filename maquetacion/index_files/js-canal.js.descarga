@@ -1,0 +1,458 @@
+$(document).ready(function() {
+  
+ 
+  if ($("#header-contenedor").hasClass("pd-activo")) {
+  $( ".st-despliegue-nota" ).addClass( "pd-activo-nota" );
+} if ($("#header-contenedor").hasClass("pd-activo")) {
+ $( "#st-bloque-apertura" ).addClass( "pd-activo-apertura" );
+} else {
+  //  block of code to be executed if the condition1 is false and condition2 is false
+}
+
+  $('.burger-menu').on('click', function() {
+
+    if ($(body).hasClass('active')) {
+      $(body).removeClass('active');
+    } else {
+      $(body).addClass('active');
+    }
+
+  });
+
+  $('.menu-icon').on('click', function() {
+    $('.menu-icon').toggleClass('menu-icon-active');
+  });
+
+  $('.collapse').collapse()
+  //   instagram iframe height
+  $('iframe[src*="youtube.com"]').wrap('<div class="youtube-wrapper" />');
+  //     $('iframe[src*="vimeo.com"]').wrap('<div class="vimeoWrapper" />');
+  $('iframe[src*="instagram.com"]').wrap('<div class="instagramWrapper" />');
+
+  //TAPS DEPORTES
+  $('#estadisticas_deportes a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  $('#dimayor-tab a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  $('#champions-tab a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  $('#laliga-tab a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  $('#premiere-tab a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+
+  //CAJA DE TENDENCIAS
+  $(function() { //run when the DOM is ready
+    $("#closet_tendencias").click(function() { //use a class, since your ID gets mangled
+      $("#box-tendencias").addClass("oculto"); //add the class to the clicked element
+    });
+  });
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      $('#menu-rcn').removeClass('top');
+      $('#menu-segundario').removeClass('top');
+    } else {
+      $('#menu-rcn').addClass('top');
+      $('#menu-segundario').addClass('top');
+    }
+  });
+
+  //PLAY VIDEO NOTA ON HOVER
+  var figure = $(".contenedor-video").hover(hoverVideo, hideVideo);
+  var figure2 = $(".nota").hover(hoverVideo, hideVideo);
+  var figure3 = $(".nota-hor").hover(hoverVideo, hideVideo);
+  var figure4 = $(".nota-interes").hover(hoverVideo, hideVideo);
+  var figure5 = $(".img-inner").hover(hoverVideo, hideVideo);
+  var figure6 = $(".video-relacionados").hover(hoverVideo, hideVideo);
+
+  function hoverVideo(e) {
+    if (typeof $('video', this).get(0) != 'undefined') {
+      $('video', this).get(0).play();
+    }
+  }
+
+  function hideVideo(e) {
+    if (typeof $('video', this).get(0) != 'undefined') {
+      $('video', this).get(0).pause();
+    }
+  }
+
+  //ICON HEART
+  $(".me-gusta").click(function() {
+    $(this).find("i").toggleClass("fas");
+  });
+
+  $(".guardar").click(function() {
+    $(this).find("i").toggleClass("fas");
+  });
+
+  //CARRUSEL TE PUEDE INTERESAR
+  $('.owl-interes').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: false,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1.2
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 3
+      }
+    }
+  })
+  $('.owl-capitulos').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: true,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1.2
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 4
+      }
+    }
+  })
+  $('.owl-personajes').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1.5
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 4
+      }
+    }
+  })
+
+  $('.owl-promotion').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1.5
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 3
+      }
+    }
+  })
+
+  $('#slider-pomocion').owlCarousel({
+    loop: true,
+    center: true,
+    items: 3,
+    margin: 0,
+    nav: true,
+    touchDrag: false,
+    mouseDrag: false,
+    smartSpeed: 450,
+    responsive: {
+      0: {
+        items: 1
+      },
+      768: {
+        items: 2
+      },
+      1170: {
+        items: 3
+      }
+    }
+  });
+  $('#slider-pomocion_canal').owlCarousel({
+    loop: true,
+    items: 1,
+    nav: true,
+    dots: true,
+    touchDrag: true,
+    mouseDrag: true,
+    smartSpeed: 450,
+    responsive: {
+      375: {
+        items: 1,
+        stagePadding: 5,
+        margin: -100
+      },
+      600: {
+        items: 1,
+        stagePadding: 40,
+        margin: -100
+      },
+      768: {
+        items: 1,
+        stagePadding: 50,
+        margin: -150
+      },
+      1024: {
+        items: 1,
+        stagePadding: 50,
+        margin: -100
+      },
+      1440: {
+        items: 1,
+        stagePadding: 100,
+        margin: -120
+      },
+      1920: {
+        items: 1,
+        stagePadding: 100,
+        margin: -150
+      }
+    }
+  });
+
+  $('#superlike-2020_slider').owlCarousel({
+    loop: true,
+    items: 1,
+    nav: true,
+    dots: true,
+    touchDrag: true,
+    mouseDrag: true,
+    smartSpeed: 450,
+    responsive: {
+      375: {
+        items: 1,
+        stagePadding: 5,
+        margin: -100
+      },
+      600: {
+        items: 1,
+        stagePadding: 40,
+        margin: -100
+      },
+      768: {
+        items: 1,
+        stagePadding: 50,
+        margin: -150
+      },
+      1024: {
+        items: 1,
+        stagePadding: 150,
+        margin: -250
+      },
+      1440: {
+        items: 1,
+        stagePadding: 150,
+        margin: -250
+      },
+      1920: {
+        items: 1,
+        stagePadding: 200,
+        margin: -250
+      }
+    }
+  });
+
+
+
+  $('.carousel-home-stage').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    lazyLoad: true,
+    responsive: {
+      0: {
+        items: 1.2
+      },
+      600: {
+        items: 1.5
+      },
+      1000: {
+        items: 3,
+        stagePadding: 190
+      },
+      1200: {
+        items: 3,
+        stagePadding: 190
+      },
+      1400: {
+        items: 4,
+        stagePadding: 190
+      },
+      1600: {
+        items: 4,
+        stagePadding: 190
+      },
+      1800: {
+        items: 4,
+        stagePadding: 190
+      }
+    }
+  })
+
+  $('.owl-calendario').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: false,
+    dots: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1.5
+      },
+      1000: {
+        items: 3
+      }
+    }
+  });
+  $('.carousel-aliados').owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: false,
+    lazyLoad: true,
+    responsive: {
+      0: {
+        items: 1.2
+      },
+      600: {
+        items: 1.5
+      },
+      1000: {
+        items: 3,
+        stagePadding: 190
+      },
+      1200: {
+        items: 3,
+      },
+      1400: {
+        items: 3,
+      },
+      1600: {
+        items: 3,
+      },
+      1800: {
+        items: 3,
+      }
+    }
+  });
+  $('.st-slider-galery').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1,
+            margin:20
+        },
+        600:{
+            items:3,
+            margin:20
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
+
+  //Filtro programas
+  $('.nav-item').click(function() {
+    // reset active class
+    $('.nav-item').removeClass("active");
+    // add active class to selected
+    $(this).addClass("active");
+    // return needed to make function work
+    return false;
+  });
+
+
+  $(function() {
+    // create an empty variable
+    var selectedClass = "";
+    // call function when item is clicked
+    $(".nav-item").click(function() {
+      // assigns class to selected item
+      selectedClass = $(this).attr("data-rel");
+      // fades out all portfolio items
+      $(".portfolio li").fadeOut(300);
+      // fades in selected category
+      $(".portfolio li." + selectedClass).delay(300).fadeIn(300);
+    });
+  });
+
+
+  //ANIMACION SLIDER
+  //   var windowSize = $(window).width();
+  //   var countDiv = $('.carousel-indicators li').length,
+
+  //     outerWidth = $('.carousel-indicators').css('width').replace('px', ''),
+  //     singleWidth = outerWidth / countDiv + 'px';
+
+  //   if (countDiv > 4 && windowSize > 600 ) {
+  //   $('.carousel-indicators li').css('width', singleWidth);
+  // } else  {
+  //    return false;
+  // }
+
+
+  // carousel home
+  $('#carousel-thumb').carousel({
+    interval: 5000
+  });
+
+  $('#carousel-thumb .item').each(function() {
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    if (next.next().length > 0) {
+
+      next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+
+    } else {
+      $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+
+    }
+  });
+
+  $(document).ready(function() { //run when the DOM is ready
+    $(".closet-ad").click(function() { //use a class, since your ID gets mangled
+      console.log("click boton 1");
+      $("#pauta_fixed_bottom").empty(); //add the class to the clicked element
+    });
+  });
+
+
+  $(document).ready(function() {
+    $(".closet-ad").click(function() {
+      $(this).hide();
+    });
+  });
+
+});
+
+function wrapIframes() {
+  $('iframe[src*=\"instagram.com\"]').not('div').wrap('<div class=\"instagramWrapper\" />');
+}

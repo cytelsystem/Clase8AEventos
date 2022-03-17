@@ -1,0 +1,69 @@
+//***********VALIDAR LINES ITEM ACITVO *****
+    
+jQuery(document).ready(function() {
+    jQuery(".search").submit(function() {
+        var e = jQuery("input:text[name=busca]").val();
+        if ("" == e) alert("Ingrese el valor de la busqueda"), window.open("https://www.canalrcn.com/", "_self");
+        else {
+            var r = "https://www.canalrcn.com/search/site/" + e;
+            window.open(r)
+        }
+    });
+
+});
+
+
+jQuery(document).ready(function() {
+    $('.menu-toggle').click(function() {
+        $(this).find('.open').toggleClass('openmenu');
+    });
+    $('#button_top').click(function(){  
+      $('html, body').animate({scrollTop:0}, 'slow');
+      return false;
+  });
+});
+
+
+   //SCRIPT DROPDOWN LIST MENU
+
+   (function($) {
+    $(function() {
+        $('#menu-principal nav ul li a:not(:only-child)').click(function(e) {
+            $(this).siblings('.nav-dropdown').toggle();
+            $('.dropdown').not($(this).siblings()).hide();
+            e.stopPropagation();
+        });
+        $('html').click(function() {
+            $('.nav-dropdown').hide();
+        });
+        $('#nav-toggle').click(function() {
+            $('nav ul').slideToggle();
+        });
+        $('#nav-toggle').on('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+})(jQuery);
+
+
+     // ************VALIDADOR ITEM ACTIVO ************
+     var urlact= window.location.href;
+     var arrurl = urlact.split("/");
+     switch(arrurl[2]){
+        case "noticias.canalrcn.com":
+        $("#noticias-line").addClass( "active" );
+        break;
+        case "deportes.canalrcn.com":
+        $("#deportes-line").addClass( "active" );
+        break;
+        case "www.canalrcn.com":
+        if(arrurl [3]=="todogamers"){
+            $("#todogamers-line").addClass( "active" );
+        }else if(arrurl[3]=="super-like"){
+            $("#superlike-line").addClass( "active" );
+        }else if(arrurl[3]=="programas"){
+            $("#programas-line").addClass( "active" );
+        }
+        break;
+    }
+    

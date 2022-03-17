@@ -1,0 +1,15 @@
+var timestamp = new Date().getUTCMilliseconds();
+jQuery.ajax({
+    url: "https://objects.canalrcn.com/noticiasrcn/elecciones/2019/territoriales/data/activo.json?"+timestamp,
+    dataType: 'json',
+    type: "GET",
+    success: function(data) {
+    	var estado = (data.activo);
+    	if (estado == 1) {
+    		document.getElementById("wep-2019").innerHTML='<object type="text/html" data="https://html.canalrcn.com/NoticiasRCN/Plebiscito/index.html" ></object>';
+			/*var miElto = document.getElementsByClassName("contenedor-header")[0];
+			miElto.className = "contenedor-header votaciones";*/
+    	}
+    }
+});
+

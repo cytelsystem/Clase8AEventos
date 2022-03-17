@@ -1,0 +1,40 @@
+//************* SCRIPT BUSCADOR ************
+        (function() {
+            urlact = window.location.host;
+            var cx = '';
+            if (urlact == "noticias.canalrcn.com") {
+                cx = '004949124878038554469:8qdjgzatp0s';
+            } else if (urlact == "deportes.canalrcn.com") {
+                cx = '004949124878038554469:rvvf85l47oq';
+            } else if (urlact == "www.ntn24.com") {
+                cx = '004949124878038554469:lhcfoouxcdz';
+            } else {
+                cx = '004949124878038554469:blghfqooojs';
+            }
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    //************* FIN SCRIPT BUSCADOR ************
+
+    //************* SCRIPT BOTON BUSCAR ************
+        $(function() {
+            $(" #buscar-boton").on("click", function(e) {
+                $("#gsc-iw-id2").addClass('view');
+                e.stopPropagation()
+            });
+            $(document).on("click", function(e) {
+                if ($(e.target).is("#gsc-iw-id2") === false) {
+                    $("#gsc-iw-id2").removeClass("view");
+                }
+            });
+        });
+
+
+        $('.menu-toggle').click(function() {
+            $("body").toggleClass("view-hidden");
+        });
+    //************* FIN SCRIPT BOTON BUSCAR ************

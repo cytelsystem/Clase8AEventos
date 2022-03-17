@@ -1,0 +1,7 @@
+$( document ).ready(function() {
+  $('.lo-mas-visto a').each(function(index){
+    var path = $(this).attr('href');
+    path = path.replace('www.ntn24.com', window.location.hostname);
+    $(this).attr('href', path);
+  });
+});

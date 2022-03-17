@@ -1,0 +1,33 @@
+try {
+    kWidget.addReadyCallback(function(playerId) {
+      var kdp = document.getElementById(playerId);
+      var foo = "bar";
+      // using kBind we will register to player's play event
+      kdp.kBind("onAdPlay", function() {
+        // console will log "play bar":
+        var player = document.getElementsByClassName("mwEmbedKalturaIframe")[0];
+        var elmnt = player.contentWindow.document.getElementsByClassName("controlsContainer")[0];
+        elmnt.style.display = "none";
+
+
+        console.log("ads " + foo);
+
+        // stop listening to the play event using kUnbind:
+
+      });
+
+      kdp.kBind("doPlay", function() {
+        // console will log "play bar":
+        console.log("play " + foo);
+        // stop listening to the play event using kUnbind:
+        var player = document.getElementsByClassName("mwEmbedKalturaIframe")[0];
+        var elmnt = player.contentWindow.document.getElementsByClassName("controlsContainer")[0];
+        elmnt.style.display = "";
+        kdp.kUnbind('doPlay');
+      });
+    });
+
+  } catch (error) {
+
+
+  }

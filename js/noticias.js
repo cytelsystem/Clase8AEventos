@@ -35,4 +35,11 @@ const noticias = [
     fecha:"07/06/21",
     tipoNacional: true
   },
+  {
+    titulo:"Descubren a la momia más antigua del mundo en Europa",
+    imgUrl:"https://imagenesntn24.canalrcn.com/ImgNtn24/8014135957001-1.jpg",
+    descripcion: "Un grupo de investigadores anunciaron el encuentro de la que podría ser la momia más vieja que se ha descubierto hasta la fecha.",
+    fecha:"16/03/22",
+    tipoNacional: false
+  }
 ];
