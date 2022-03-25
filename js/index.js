@@ -1,46 +1,69 @@
 
+let otherList = [];
 
-function pintarTarjetas(listado) {
+noticias.forEach(noticias => {
+  otherList.push(noticias);
+})
+
+function filtro(estado){
+      otherList = [];
+      noticias.forEach(item => {
+        if (item.tipoNacional == estado) {
+          otherList.push(item);
+        }
+      });
+      card();
+}
+
+document.querySelector('#btnNacional').addEventListener('click', function(event){
+  filtro(true);
+});
+document.querySelector('#btnInternacional').addEventListener('click', function(event){
+  filtro(false)
+});
 
 
-  listado.forEach(element => {
 
-      let contenedor = document.querySelector('.main-contenedor')
+function card(){
 
-      var divCard = document.createElement("div"); // Elemento a crear
-      divCard.setAttribute("class", "card");
+  let contenedor = document.querySelector('.main-contenedor')
+  contenedor.innerHTML = "" ;
 
-      var imagen = document.createElement("img");
-      imagen.setAttribute("src", element.imgUrl);
-      imagen.setAttribute("class", "card-img-top");
+  otherList.map(element => {
 
-      var divBody = document.createElement("div"); // Elemento a crear
-      divBody.setAttribute("class", "card-body");
+    var divCard = document.createElement("div");
+    divCard.setAttribute("class", "card");
+    divCard.setAttribute("key", element.id);
+
+    var imagen = document.createElement("img");
+    imagen.setAttribute("src", element.imgUrl);
+    imagen.setAttribute("class", "card-img-top");
+
+    var divBody = document.createElement("div");
+    divBody.setAttribute("class", "card-body");
 
 
-      var h3 = document.createElement("h3"); // Elemento a crear
-      h3.setAttribute("class", "card-title");
-      h3.textContent = element.titulo
+    var h3 = document.createElement("h3");
+    h3.setAttribute("class", "card-title");
+    h3.textContent = element.titulo
 
-      var p = document.createElement("p"); // Elemento a crear
-      p.setAttribute("class", "card-text");
-      p.textContent = element.descripcion
+    var p = document.createElement("p");
+    p.setAttribute("class", "card-text");
+    p.textContent = element.descripcion
 
-      var h5 = document.createElement("h5"); // Elemento a crear
-      h5.setAttribute("class", "card-fecha");
-      h5.textContent = element.fecha
+    var h5 = document.createElement("h5");
+    h5.setAttribute("class", "card-fecha");
+    h5.textContent = element.fecha
 
-      contenedor.appendChild(divCard)
-      divCard.appendChild(imagen)
-      divCard.appendChild(divBody)
-      divBody.appendChild(h3)
-      divBody.appendChild(p)
-      divBody.appendChild(h5)
+    contenedor.appendChild(divCard)
+    divCard.appendChild(imagen)
+    divCard.appendChild(divBody)
+    divBody.appendChild(h3)
+    divBody.appendChild(p)
+    divBody.appendChild(h5)
 
   });
 
-
 }
 
-
-pintarTarjetas(noticias)
+card();
